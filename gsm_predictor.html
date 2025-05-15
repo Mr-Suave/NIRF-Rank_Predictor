@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SS Score Predictor</title>
+    <title>GSM Predictor</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -97,7 +97,7 @@
             color: #fff; /* White text */
             padding: 14px;
             border: none;
-            border-radius: 6px;
+            border-radius: 66px;
             cursor: pointer;
             width: 100%;
             font-size: 17px;
@@ -151,11 +151,21 @@
             color: #fff; /* White heading */
             text-align: center; /* Center heading */
         }
-         .right-half p {
+         .right-half h3 { /* Added H3 styling */
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ccc; /* Lighter gray heading */
+         }
+        .right-half p {
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 15px;
-         }
+        }
+
+
+        /* --- Styling for the Image and Caption --- */
         .image-caption-container {
             margin-top: 30px; /* Space above the image container */
             text-align: center; /* Center content inside */
@@ -180,73 +190,64 @@
             margin: 0;
             font-weight: 400;
         }
-
+        /* --- End Styling for Image and Caption --- */
 
 
     </style>
 </head>
 <body>
 
-    <h1>SS SCORE PREDICTOR</h1>
+    <h1>GSM PREDICTOR</h1>
 
     <div class="content-wrapper">
         <div class="left-half">
             <div class="container">
                 <h2>Enter Parameters</h2>
-                <input type="number" id="nt" placeholder="Enter NT">
-                <input type="number" id="ne" placeholder="Enter NE">
-                <input type="number" id="np" placeholder="Enter Np">
-                <button onclick="predictSSScore()">Predict SS Score</button>
+                <input type="number" id="median_salary" placeholder="Enter Median Salary">
+                <button onclick="predictGsmValue()">Predict GSM Value</button>
                 <p id="result"></p>
             </div>
+
             <div class="image-caption-container">
-                <img src="polynomial.png" alt="Comparison of Linear and Polynomial Regression Models" class="predictor-image">
-                <p class="image-caption">Polynomial Regression - The heart of this predictor</p>
+                <img src="polynomial.png" alt="Illustration of Polynomial Regression" class="predictor-image">
+                <p class="image-caption">Prediction Model: Polynomial Regression</p>
             </div>
+
         </div>
 
         <div class="right-half">
-            <h2>About SS Score and Prediction</h2>
+            <h2>About GSM Prediction</h2>
 
-            <h3>What is SS Score?</h3>
+            <h3>What is GSM?</h3>
             <p>
-                Within the NIRF (National Institutional Ranking Framework) methodology, "SS" stands for Student Strength. It is a crucial sub-parameter under the Teaching, Learning and Resources (TLR) category.
+                 While "GSM" is not an official NIRF parameter acronym, it is likely used here to refer to a metric related to college outcomes influenced by factors like median salary. Median salary is a significant indicator within the Graduation Outcomes (GO) parameter in the NIRF ranking, reflecting the success of graduates in securing well-paying jobs.
             </p>
-            <p>
-                The SS score reflects the total number of students enrolled in an institution across all levels, including undergraduate, postgraduate, and particularly the number of doctoral (PhD) students.
-            </p>
-            <p>
-                Student strength is considered important as it provides insights into the institution's size, the scale of its operations, and its capacity for higher-level research activities, especially indicated by the number of PhD scholars. It is one of several factors used to calculate the overall TLR score, which contributes to the final NIRF ranking.
-            </p>
+             <p>
+                 This predictor aims to estimate a "value" or "score" associated with a college's performance, primarily driven by the median salary of its graduates.
+             </p>
 
             <h3>About the Prediction Model</h3>
             <p>
-                Predicting scores like SS often involves statistical modeling. A fundamental approach is  Linear Regression , which attempts to model the relationship between input variables (like NT, NE, Np) and the target variable (SS Score) as a straight line. It assumes a simple linear relationship.
-            </p>
-            <p>
-                 However, relationships in real-world data can be more complex and might not follow a straight line.  Polynomial Regression  is an extension of Linear Regression that allows us to model non-linear relationships by including polynomial terms (like the square or cube of an input variable) in the model equation. This enables the model to fit curves to the data, potentially capturing more intricate patterns than a simple linear model.
+                 Statistical modeling helps us understand and predict relationships between different data points. **Polynomial Regression** is a method that can be used to model the relationship between an input variable (like median salary) and an output variable (like a performance score) by fitting a curved line to the data. This allows it to capture non-linear patterns that a simple straight line model (Linear Regression) might miss.
             </p>
              <p>
-                 This SS Score predictor utilizes a  Polynomial Regression  model, trained on relevant data, to estimate the SS score based on the NT, NE, and Np values you provide. It finds the curve that best fits the historical data to make its prediction.
+                 This GSM predictor utilizes a **Polynomial Regression** model, specifically trained on a dataset containing median salary information and corresponding scores, to estimate the likely score based on the median salary you input.
              </p>
              <p>
-                 *Note: This is a predictive tool based on a specific model and data. Actual SS scores can vary.*
+                 *Note: This is a predictive tool based on a specific model and data. Actual scores or outcomes can vary.*
              </p>
-
 
         </div>
     </div>
 
 
     <script>
-         // Replace with the actual URL of your SS Score backend deployed on Render
-         const SS_PREDICTOR_API_URL = "https://nirf-rank-predictor-1.onrender.com/predict"; // <<< UPDATE THIS URL
+         // Replace with the actual URL of your GSM backend deployed on Render
+         const GSM_PREDICTOR_API_URL = "https://nirf-rank-predictor-2.onrender.com/predict"; // <<< UPDATE THIS URL
 
 
-         function predictSSScore() {
-            const nt = parseFloat(document.getElementById("nt").value);
-            const ne = parseFloat(document.getElementById("ne").value);
-            const np = parseFloat(document.getElementById("np").value);
+         function predictGsmValue() {
+            const medianSalary = parseFloat(document.getElementById("median_salary").value);
 
             const resultElement = document.getElementById("result");
 
@@ -256,36 +257,33 @@
 
 
             // Basic validation for empty fields and NaN
-            if (isNaN(nt) || isNaN(ne) || isNaN(np)) {
-                resultElement.innerText = "Please fill in all fields with valid numbers.";
+            if (isNaN(medianSalary)) {
+                resultElement.innerText = "Please fill in the median salary with a valid number.";
                 resultElement.style.color = "red";
                 return;
             }
 
             // --- Simple Non-Negative Validation ---
-             if (nt < 0 || ne < 0 || np < 0) {
-                 resultElement.innerText = "Input values cannot be negative.";
+             if (medianSalary < 0) {
+                 resultElement.innerText = "Median salary cannot be negative.";
                  resultElement.style.color = "red";
                  return;
              }
-            // Add more specific range validation here if you know the expected bounds for NT, NE, Np
-            // e.g., if NT should not exceed a certain number for the type of institution.
+            // Add more specific range validation here if you know the expected bounds for median salary.
             // ------------------------------------
 
 
             // If validation passes, show loading state
-            resultElement.innerText = "Predicting SS Score...";
+            resultElement.innerText = "Predicting GSM Value...";
 
 
             // Prepare data for the fetch request
             const dataToSend = {
-                nt: nt,
-                ne: ne,
-                np: np
+                median_salary: medianSalary
             };
 
 
-            fetch(SS_PREDICTOR_API_URL, { // Use the defined API URL
+            fetch(GSM_PREDICTOR_API_URL, { // Use the defined API URL
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -299,9 +297,9 @@
                 return response.json();
             })
             .then(data => {
-                // Assuming the backend returns {"predicted_ss": value}
-                if (data.predicted_ss !== undefined) {
-                    resultElement.innerText = "Predicted SS Score: " + data.predicted_ss;
+                // Assuming the backend returns {"predicted_gsm_score": value}
+                if (data.predicted_gsm_score !== undefined) {
+                    resultElement.innerText = "Predicted GSM Value: " + data.predicted_gsm_score;
                     resultElement.style.color = "green"; // Success color
                 } else if (data.error) {
                      resultElement.innerText = "Error from server: " + data.error;
