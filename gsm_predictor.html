@@ -191,12 +191,33 @@
             font-weight: 400;
         }
         /* --- End Styling for Image and Caption --- */
+        /* --- Styling for the Home button --- */
+        .home-button {
+            position: fixed; /* Stay in place relative to the viewport */
+            top: 20px; /* 20 pixels from the top */
+            right: 20px; /* 20 pixels from the right */
+            padding: 8px 15px; /* Padding inside the button */
+            border: 1px solid #fff; /* White border */
+            border-radius: 5px; /* Slightly rounded corners */
+            color: #fff; /* White text color */
+            background-color: transparent; /* Transparent background */
+            text-decoration: none; /* Remove underline */
+            font-size: 14px; /* Small font size */
+            z-index: 1000; /* Ensure it's above other content */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .home-button:hover {
+            background-color: #fff; /* White background on hover */
+            color: #000; /* Black text on hover */
+        }
+        /* --- End Styling for Home button --- */
 
 
     </style>
 </head>
 <body>
-
+    <a href="./index.html" class="home-button">Home</a>
     <h1>GSM PREDICTOR</h1>
 
     <div class="content-wrapper">
