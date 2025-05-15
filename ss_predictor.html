@@ -151,11 +151,46 @@
             color: #fff; /* White heading */
             text-align: center; /* Center heading */
         }
-         .right-half p {
+         .right-half h3 { /* Added H3 styling */
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #ccc; /* Lighter gray heading */
+         }
+        .right-half p {
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 15px;
-         }
+        }
+
+
+        /* --- Styling for the Image and Caption --- */
+        .image-caption-container {
+            margin-top: 30px; /* Space above the image container */
+            text-align: center; /* Center content inside */
+            width: 100%; /* Take full width of left-half */
+            box-sizing: border-box;
+            padding: 0 15px; /* Add some horizontal padding */
+        }
+
+        .predictor-image { /* Changed class name to be more general */
+            max-width: 100%; /* Make image responsive, not wider than its container padding */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below image */
+            margin: 0 auto 10px auto; /* Center image itself and add margin below */
+            border: 1px solid #444; /* Optional: Add a subtle border */
+            border-radius: 8px; /* Optional: Match border radius of other elements */
+            box-sizing: border-box;
+        }
+
+        .image-caption {
+            font-size: 14px;
+            color: #bbb; /* Slightly lighter color for caption */
+            margin: 0;
+            font-weight: 400;
+        }
+        /* --- End Styling for Image and Caption --- */
 
 
     </style>
@@ -175,22 +210,40 @@
                 <p id="result"></p>
             </div>
 
-            <p class="footer">Project by: Shefali MA23M104</p>
+            <div class="image-caption-container">
+                <img src="./polynomial.png" alt="Comparison of Linear and Polynomial Regression Models" class="predictor-image">
+                <p class="image-caption">Polynomial Regression - The heart of this predictor</p>
+            </div>
+
+             <p class="footer">Project by: Shefali MA23M104</p>
         </div>
 
         <div class="right-half">
-            <h2>About SS Score</h2>
+            <h2>About SS Score and Prediction</h2>
+
+            <h3>What is SS Score?</h3>
             <p>
-                Within the NIRF (National Institutional Ranking Framework) methodology, "SS" stands for **Student Strength**. It is a crucial sub-parameter under the **Teaching, Learning and Resources (TLR)** category.
+                Within the NIRF (National Institutional Ranking Framework) methodology, "SS" stands for Student Strength. It is a crucial sub-parameter under the Teaching, Learning and Resources (TLR) category.
             </p>
             <p>
-                The SS score reflects the **total number of students** enrolled in an institution across all levels, including undergraduate, postgraduate, and particularly the number of **doctoral (PhD) students**.
+                The SS score reflects the total number of students enrolled in an institution across all levels, including undergraduate, postgraduate, and particularly the number of doctoral (PhD) students.
             </p>
             <p>
                 Student strength is considered important as it provides insights into the institution's size, the scale of its operations, and its capacity for higher-level research activities, especially indicated by the number of PhD scholars. It is one of several factors used to calculate the overall TLR score, which contributes to the final NIRF ranking.
             </p>
+
+            <h3>About the Prediction Model</h3>
+            <p>
+                Predicting scores like SS often involves statistical modeling. A fundamental approach is  Linear Regression , which attempts to model the relationship between input variables (like NT, NE, Np) and the target variable (SS Score) as a straight line. It assumes a simple linear relationship.
+            </p>
+            <p>
+                 However, relationships in real-world data can be more complex and might not follow a straight line.  Polynomial Regression  is an extension of Linear Regression that allows us to model non-linear relationships by including polynomial terms (like the square or cube of an input variable) in the model equation. This enables the model to fit curves to the data, potentially capturing more intricate patterns than a simple linear model.
+            </p>
              <p>
-                 This predictor uses a model trained on relevant data (assuming features like NT, NE, Np relate to student strength factors) to estimate the SS score based on the values you provide.
+                 This SS Score predictor utilizes a  Polynomial Regression  model, trained on relevant data, to estimate the SS score based on the NT, NE, and Np values you provide. It finds the curve that best fits the historical data to make its prediction.
+             </p>
+             <p>
+                 *Note: This is a predictive tool based on a specific model and data. Actual SS scores can vary.*
              </p>
 
         </div>

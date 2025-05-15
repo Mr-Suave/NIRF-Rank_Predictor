@@ -19,12 +19,23 @@
             padding: 20px;
             box-sizing: border-box;
         }
+        /* Styling for the logo image */
+        .logo {
+            display: block; /* Allows margin: auto for centering */
+            margin: 0 auto 20px auto; /* Center horizontally and add 20px margin below */
+            max-width: 150px; /* Control the maximum width of the logo */
+            height: auto; /* Maintain aspect ratio */
+            /* Adjust max-width if you want the logo to be larger or smaller */
+        }
+
         h1 {
             font-size: 32px;
             font-weight: 600;
-            margin-bottom: 50px;
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 50px; /* Space below the title */
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-align: center;
         }
         .button-container {
             display: flex;
@@ -32,45 +43,54 @@
             gap: 20px; /* Space between buttons */
             width: 100%;
             max-width: 300px; /* Limit container width */
+            margin-bottom: 40px; /* Space below the buttons */
         }
         .button {
-            display: block; /* Make the link act like a block for padding/margin */
+            display: block;
             padding: 15px 20px;
-            border: 2px solid #fff; /* White border */
+            border: 2px solid #fff;
             border-radius: 8px;
-            text-decoration: none; /* Remove underline */
-            color: #fff; /* White text */
-            background-color: transparent; /* Transparent background */
+            text-decoration: none;
+            color: #fff;
+            background-color: transparent;
             font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             text-align: center;
         }
         .button:hover {
-            background-color: #fff; /* White background on hover */
-            color: #000; /* Black text on hover */
-            border-color: #fff; /* Keep border white on hover */
+            background-color: #fff;
+            color: #000;
+            border-color: #fff;
         }
-        /* Optional: Add a subtle footer */
-         .footer {
-            margin-top: 40px;
+        /* Styling for the footer text */
+        .footer {
+            margin-top: 0; /* Adjusted margin top as margin-bottom is on button-container */
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.7); /* Slightly less bright white */
-         }
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-right: 40px;
+            margin-left: 40px;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Welcome</h1>
+    <img src="./nirf_logo.png" alt="NIRF Logo" class="logo">
+
+    <h1>Know your college better!</h1>
 
     <div class="button-container">
         <a href="./nirf-predictor.html" class="button">NIRF Predictor</a>
-        <a href="./ss_predictor.html" class="button">Button 2</a> 
-        <a href="#" class="button">Button 3</a> </div>
+        <a href="./ss_predictor.html" class="button">SS Score Predictor</a>
+        <a href="#" class="button">GSM Predictor</a>
+    </div>
 
-     <div class="footer">
-         Project Homepage
-     </div>
+    <div class="footer">
+        This comprehensive project is designed to assist students in predicting their NIRF and SS scores based on various parameters. The project utilizes advanced machine learning techniques to provide accurate predictions, helping students make informed decisions about their academic paths.
+        This project demonstrates the power of data science in education, showcasing how machine learning can be applied to real-world scenarios. The project is a valuable resource for students, educators, and institutions alike, providing insights into the factors that influence NIRF and SS scores.
+        The project is built using Python and various libraries, including Pandas, NumPy, and Scikit-learn, ensuring a robust and efficient implementation. The user-friendly interface allows for easy interaction with the prediction models, making it accessible to users with varying levels of technical expertise.
+    </div>
 
 </body>
 </html>
