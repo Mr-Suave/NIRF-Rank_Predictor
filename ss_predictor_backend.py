@@ -88,7 +88,7 @@ def predict_ss():
         predicted_ss_score_rounded = round(y_pred[0], 2)
 
 
-        return jsonify({"predicted_ss_score": predicted_ss_score_rounded}) # Access the single element and convert to a standard Python float
+        return jsonify({"predicted_ss": predicted_ss_score_rounded}) # Access the single element and convert to a standard Python float
 
     except Exception as e:
         # Log the error for debugging on the server side
