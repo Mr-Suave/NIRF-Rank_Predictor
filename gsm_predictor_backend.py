@@ -75,10 +75,9 @@ def predict_gsm():
 
         # Apply rounding and clipping (assuming score is on a 0-100 scale)
         # Round to nearest integer and clip between 0 and 100
-        predicted_gsm_score_clipped_rounded = int(np.round(np.clip(y_pred[0], a_min=0, a_max=100)))
+        predicted_gms_score_rounded = round(y_pred[0], 2)
 
-
-        return jsonify({"predicted_gsm_score": float(y_pred[0])}) # Access the single element and convert to a standard Python float
+        return jsonify({"predicted_gsm_score": predicted_gms_score_rounded}) # Access the single element and convert to a standard Python float
 
     except Exception as e:
         # Log the error for debugging on the server side

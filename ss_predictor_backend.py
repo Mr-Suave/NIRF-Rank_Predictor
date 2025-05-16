@@ -85,10 +85,10 @@ def predict_ss():
 
         # Apply clipping and rounding as in your original code snippet
         # Clipping between 0 and 20, then rounding to nearest integer
-        predicted_ss_clipped_rounded = int(np.round(np.clip(y_pred[0], a_min=0, a_max=20)))
+        predicted_ss_score_rounded = round(y_pred[0], 2)
 
 
-        return jsonify({"predicted_ss": predicted_ss_clipped_rounded})
+        return jsonify({"predicted_ss_score": predicted_ss_score_rounded}) # Access the single element and convert to a standard Python float
 
     except Exception as e:
         # Log the error for debugging on the server side
