@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSM Predictor</title>
+    <title>GMS Predictor</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -237,11 +237,11 @@
         </div>
 
         <div class="right-half">
-            <h2>About GSM Prediction</h2>
+            <h2>About GMS Prediction</h2>
 
-            <h3>What is GSM?</h3>
+            <h3>What is GMS (Gross mean salary) ?</h3>
             <p>
-                 While "GSM" is not an official NIRF parameter acronym, it is likely used here to refer to a metric related to college outcomes influenced by factors like median salary. Median salary is a significant indicator within the Graduation Outcomes (GO) parameter in the NIRF ranking, reflecting the success of graduates in securing well-paying jobs.
+                 While "GMS" is not an official NIRF parameter acronym, it is likely used here to refer to a metric related to college outcomes influenced by factors like median salary. Median salary is a significant indicator within the Graduation Outcomes (GO) parameter in the NIRF ranking, reflecting the success of graduates in securing well-paying jobs.
             </p>
              <p>
                  This predictor aims to estimate a "value" or "score" associated with a college's performance, primarily driven by the median salary of its graduates.
@@ -252,7 +252,7 @@
                  Statistical modeling helps us understand and predict relationships between different data points. Polynomial Regression is a method that can be used to model the relationship between an input variable (like median salary) and an output variable (like a performance score) by fitting a curved line to the data. This allows it to capture non-linear patterns that a simple straight line model (Linear Regression) might miss.
             </p>
              <p>
-                 This GSM predictor utilizes a Polynomial Regression model, specifically trained on a dataset containing median salary information and corresponding scores, to estimate the likely score based on the median salary you input.
+                 This GMS predictor utilizes a Polynomial Regression model, specifically trained on a dataset containing median salary information and corresponding scores, to estimate the likely score based on the median salary you input.
              </p>
              <p>
                  Note: This is a predictive tool based on a specific model and data. Actual scores or outcomes can vary.
@@ -263,7 +263,7 @@
 
 
     <script>
-         // Replace with the actual URL of your GSM backend deployed on Render
+         // Replace with the actual URL of your GMS backend deployed on Render
          const GSM_PREDICTOR_API_URL = "https://nirf-rank-predictor-2.onrender.com/predict"; // <<< UPDATE THIS URL
 
 
@@ -295,7 +295,7 @@
 
 
             // If validation passes, show loading state
-            resultElement.innerText = "Predicting GSM Value...";
+            resultElement.innerText = "Predicting GMS Value...";
 
 
             // Prepare data for the fetch request
@@ -320,7 +320,7 @@
             .then(data => {
                 // Assuming the backend returns {"predicted_gsm_score": value}
                 if (data.predicted_gsm_score !== undefined) {
-                    resultElement.innerText = "Predicted GSM Value: " + data.predicted_gsm_score;
+                    resultElement.innerText = "Predicted GMS Value: " + data.predicted_gsm_score;
                     resultElement.style.color = "green"; // Success color
                 } else if (data.error) {
                      resultElement.innerText = "Error from server: " + data.error;
