@@ -78,7 +78,7 @@ def predict_gsm():
         predicted_gsm_score_clipped_rounded = int(np.round(np.clip(y_pred[0], a_min=0, a_max=100)))
 
 
-        return jsonify({"predicted_gsm_score": predicted_gsm_score_clipped_rounded})
+        return jsonify({"predicted_gsm_score": y_pred})
 
     except Exception as e:
         # Log the error for debugging on the server side
