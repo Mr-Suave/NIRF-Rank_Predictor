@@ -9,10 +9,11 @@ The primary goal is to offer a programmatic way to estimate these scores based o
 ## Features
 
 * API endpoint for predicting SS Score based on input parameters.
-* Uses a trained Polynomial Regression model for SS Score prediction.
+* Uses a trained Polynomial Regression model for SS and GSM score prediction.
 * Includes data validation and basic error handling for API requests.
-* (Optional: Add features for GSM, NIRF prediction if implemented)
-* (Optional: Add features like data ingestion endpoints, model retraining triggers if applicable)
+* NIRF Rank prediction based on common metrics such as TLR, RPC, GO etc.
+* Poisson regressor used for predicting NIRF Ranks.
+
 
 ## Technologies Used
 
@@ -22,16 +23,12 @@ The primary goal is to offer a programmatic way to estimate these scores based o
 * Pandas
 * NumPy
 * Scikit-learn (sklearn)
-* (Optional: Add other libraries like Gunicorn/Waitress for production)
 
-## Prerequisites
+## Prerequisites for locally running it/source code analysis
 
 Before you begin, ensure you have the following installed:
 
 * Python 3.6+
 * pip (Python package installer)
 
-## Getting Started
-
-Follow these steps to set up and run the project locally.
 
