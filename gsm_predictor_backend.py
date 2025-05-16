@@ -78,7 +78,7 @@ def predict_gsm():
         predicted_gsm_score_clipped_rounded = int(np.round(np.clip(y_pred[0], a_min=0, a_max=100)))
 
 
-        return jsonify({"predicted_gsm_score": y_pred})
+        return jsonify({"predicted_gsm_score": float(y_pred[0])}) # Access the single element and convert to a standard Python float
 
     except Exception as e:
         # Log the error for debugging on the server side
